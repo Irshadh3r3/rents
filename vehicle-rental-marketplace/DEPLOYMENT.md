@@ -27,15 +27,22 @@ vercel deploy --prod
 2. Click "New Project"
 3. Import your GitHub repository
 4. Configure:
-   - Framework Preset: Next.js
-   - Root Directory: ./
-   - Build Command: `npm run build`
-   - Output Directory: `.next`
+   - **Framework Preset**: Next.js
+   - **Root Directory**: `./` (leave as root, do NOT select backend folder)
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `.next`
+   - **Install Command**: `npm install`
 5. Add Environment Variables:
    \`\`\`
    NEXT_PUBLIC_API_URL=https://your-backend-url.com/api
    \`\`\`
 6. Deploy
+
+**Important Notes:**
+- The `backend` folder contains a separate Node.js/Express API and should NOT be deployed to Vercel
+- Deploy only the Next.js frontend to Vercel
+- Deploy the backend separately to Railway, Render, or a VPS
+- The `vercel.json` file ensures Vercel ignores the backend folder
 
 ## Backend Deployment (Railway)
 
