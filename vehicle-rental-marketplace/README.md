@@ -25,6 +25,15 @@ A managed vehicle rental marketplace for Karachi, Pakistan. This platform connec
 - JWT Authentication
 - Firebase (OTP)
 
+## Architecture
+
+This project consists of two separate applications:
+
+1. **Frontend (Next.js)** - Deploy to Vercel
+2. **Backend (Express API)** - Deploy to Railway/Render/VPS
+
+The frontend and backend are decoupled and should be deployed separately.
+
 ## User Roles
 
 - **Admin** - Full control over dealers, vehicles, and bookings
@@ -43,6 +52,7 @@ A managed vehicle rental marketplace for Karachi, Pakistan. This platform connec
 ### Installation
 
 1. Clone the repository
+
 2. Install frontend dependencies:
    \`\`\`bash
    npm install
@@ -52,10 +62,12 @@ A managed vehicle rental marketplace for Karachi, Pakistan. This platform connec
    \`\`\`bash
    cd backend
    npm install
+   cd ..
    \`\`\`
 
 4. Set up environment variables:
-   - Copy `.env.example` to `.env`
+   - Copy `.env.example` to `.env` in root directory
+   - Copy `backend/.env.example` to `backend/.env`
    - Fill in your configuration values
 
 5. Start MongoDB:
@@ -69,12 +81,26 @@ A managed vehicle rental marketplace for Karachi, Pakistan. This platform connec
    npm run dev
    \`\`\`
 
-7. Start the frontend:
+7. Start the frontend (in a new terminal):
    \`\`\`bash
    npm run dev
    \`\`\`
 
 8. Open [http://localhost:3000](http://localhost:3000)
+
+## Deployment
+
+### Frontend (Vercel)
+
+\`\`\`bash
+vercel deploy
+\`\`\`
+
+**Important:** Make sure Root Directory is set to `./` (the project root) in Vercel settings.
+
+### Backend (Railway/Render/VPS)
+
+Deploy the `backend` folder separately. See `DEPLOYMENT.md` for detailed instructions.
 
 ## Database Collections
 
@@ -85,18 +111,6 @@ A managed vehicle rental marketplace for Karachi, Pakistan. This platform connec
 - **bookings** - Booking requests and confirmations
 - **payments** - Payment tracking (Phase 2)
 - **disputes** - Issue resolution system
-
-## Deployment
-
-**Frontend (Vercel):**
-\`\`\`bash
-vercel deploy
-\`\`\`
-
-**Backend (Railway/VPS):**
-- Configure MongoDB connection
-- Set environment variables
-- Deploy using Railway CLI or manual VPS setup
 
 ## API Documentation
 
